@@ -1,0 +1,65 @@
+<template name="add">
+    <div class="intro section grey">
+        <h1 class="section-title">Tortenet</h1>
+
+        <div class="w-row">
+            <div class="w-col w-col-6">
+                <h3>Honnan?</h3>
+                <div class="w-container map-container">
+
+
+                    <div id="map-canvas"></div>
+                    <div class="w-form address-form">
+                        <form name="email-form" data-name="Email Form">
+
+                            <input class="w-input controls" type="text" id="pac-input" placeholder="Honnan" name="name" data-name="Name"></input>
+                        </form>
+                        <div class="w-form-done">
+                            <p>Thank you! Your submission has been received!</p>
+                        </div>
+                        <div class="w-form-fail">
+                            <p>Oops! Something went wrong while submitting the form :(</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-col w-col-6">
+                <h3>Hova?</h3>
+                <div class="w-container map-container">
+                    <div class="w-widget w-widget-map" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);" data-widget-latlng="42.358431,-71.059773" data-widget-style="roadmap" data-widget-zoom="12"></div>
+                    <div class="w-form address-form">
+                        <form name="email-form" data-name="Email Form">
+                            <input class="w-input" type="text" placeholder="Hova" name="name" data-name="Name"></input>
+                        </form>
+                        <div class="w-form-done">
+                            <p>Thank you! Your submission has been received!</p>
+                        </div>
+                        <div class="w-form-fail">
+                            <p>Oops! Something went wrong while submitting the form :(</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-container form-container">
+            <div class="w-form">
+                <form name="email-form" data-name="Email Form">
+                    <input class="w-input" type="text" placeholder="Nev" name="name" data-name="Name" required="required"></input>
+                    <input class="w-input" type="text" placeholder="Eletkor" name="age" data-name="Age" required="required"></input>
+                    <input class="w-input" type="text" placeholder="Kivandorlasi ev" name="date-out" required="required" data-name="Date-Out"></input>
+                    <input class="w-input" type="text" placeholder="Tervezett visszavandorlas eve" required="required" name="date-back" data-name="Date-back"></input>
+                    <textarea class="w-input story-textarea" placeholder="Meseld el a torteneted" name="story" data-name="story" required="required"></textarea>
+                    <input class="w-button button submit" type="submit" value="Submit" data-wait="Please wait..."></input>
+                </form>
+                <div class="w-form-done">
+                    <p>Thank you! Your submission has been received!</p>
+                </div>
+                <div class="w-form-fail">
+                    <p>Oops! Something went wrong while submitting the form :(</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</template>

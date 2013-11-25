@@ -1,0 +1,76 @@
+<head>
+    <meta charset="utf-8">
+    <title>hovatovabb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Montserrat:400,700","Varela Round:400","Varela:400"]
+            }
+        });
+    </script>
+    <link rel="icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
+    <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51d2715929d9cfe03a000001/webclip-gallio.png">
+</head>
+
+
+<body>
+
+</body>
+
+<template name="layout">
+    {{> header}}
+    {{{yield}}}
+    {{> footer}}
+</template>
+
+<template name="header">
+    <header class="section header">
+        <div class="w-container">
+            <div class="w-row">
+                <div class="w-col w-col-4 company-column">
+                    <div class="company">HovaTovabb</div>
+                    <img class="logo" src="/56173961-991d-4ed7-8529-a235d3aabaf6_1-logo.png" width="41px" alt="56173961-991d-4ed7-8529-a235d3aabaf6_1-logo.png">
+                </div>
+                <nav class="w-col w-col-8 nav-column"><a class="nav-link" href="#page-nav-Mobile" target="_self">Add</a><a class="nav-link" href="#page-nav-Features" target="_self">Explore</a><a class="button nav" href="#">Sign Up</a><a class="button nav" href="#">Log in</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+</template>
+
+
+<template name="footer">
+    <footer class="section footer">
+        <div class="w-container">
+            <div class="w-row">
+                <div class="w-col w-col-6">
+                    <img class="logo-bottom" src="/cd5f8906-0005-4633-a811-ae9ea1aa4320_1-logo.png" width="41px" alt="cd5f8906-0005-4633-a811-ae9ea1aa4320_1-logo.png">
+                    <div class="w-hidden-small w-hidden-tiny footer-text">HovaTovabb</div>
+                </div>
+                <div class="w-col w-col-6 right-footer-col">
+                    <div class="w-hidden-small w-hidden-tiny footer-text">Contact us:</div>
+                    <a class="w-inline-block social-icon first" href="mailto:support@webflow.com?subject=Hello">
+                        <img src="/35ec5a20-6309-494a-9d48-0e463a4d6214_14-social-email.png" width="30px" alt="35ec5a20-6309-494a-9d48-0e463a4d6214_14-social-email.png">
+                    </a>
+                    <a class="w-inline-block social-icon" href="http://facebook.com/webflow" target="_blank">
+                        <img src="/8643c589-cd4b-46b1-956b-2eb95815c79c_14-social-facebook.png" width="30px" alt="8643c589-cd4b-46b1-956b-2eb95815c79c_14-social-facebook.png">
+                    </a>
+                    <a class="w-inline-block social-icon" href="http://www.twitter.com/webflowapp" target="_blank">
+                        <img src="/a1c85180-93b5-44b0-9d23-1cfa6881fdfe_14-social-twitter.png" width="30px" alt="a1c85180-93b5-44b0-9d23-1cfa6881fdfe_14-social-twitter.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <input type="button" value="Click" />
+</template>
+
+

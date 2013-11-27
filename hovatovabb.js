@@ -35,4 +35,14 @@ Router.map(function () {
         template: 'add'
     });
 
+    this.route('list', {
+        path: '/list',
+        template: 'list'
+    });
+
+    this.route('intro', {
+        path: '/intro',
+        template: 'intro'
+    });
+
 });

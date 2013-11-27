@@ -1,72 +1,152 @@
 Template.add.rendered = function(){
 
+    var mapOptionsFrom = {
+        center: new google.maps.LatLng(47.28921, 19.13878),
+        zoom: 7
+    };
 
-        var mapOptions = {
-            center: new google.maps.LatLng(-33.8688, 151.2195),
-            zoom: 13
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
+    var mapOptionsTo = {
+        center: new google.maps.LatLng(47.28921, 19.13878),
+        zoom: 1
+    };
 
-        var input = /** @type {HTMLInputElement} */(
-            document.getElementById('pac-input'));
+    var mapFrom = new google.maps.Map(document.querySelector('.mapfrom'),
+        mapOptionsFrom);
+    var mapTo= new google.maps.Map(document.querySelector('.mapto'),
+        mapOptionsTo);
 
-        var types = document.getElementById('type-selector');
-       // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        //map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+    var inputFrom = /** @type {HTMLInputElement} */(
+        document.querySelector('.inputfrom'));
+    var inputTo = /** @type {HTMLInputElement} */(
+        document.querySelector('.inputto'));
 
-        var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds', map);
+    var types = document.getElementById('type-selector');
+    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
-        var infowindow = new google.maps.InfoWindow();
-        var marker = new google.maps.Marker({
-            map: map
-        });
+    var autocompleteFrom  = new google.maps.places.Autocomplete(inputFrom );
+    autocompleteFrom.bindTo('bounds', mapFrom );
+    var infowindowFrom  = new google.maps.InfoWindow();
+    var markerFrom  = new google.maps.Marker({
+        map: mapFrom
+    });
 
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            infowindow.close();
-            marker.setVisible(false);
-            var place = autocomplete.getPlace();
-            if (!place.geometry) {
-                return;
-            }
 
-            // If the place has a geometry, then present it on a map.
-            if (place.geometry.viewport) {
-                map.fitBounds(place.geometry.viewport);
-            } else {
-                map.setCenter(place.geometry.location);
-                map.setZoom(17);  // Why 17? Because it looks good.
-            }
-            marker.setIcon(/** @type {google.maps.Icon} */({
-                url: place.icon,
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(35, 35)
-            }));
-            marker.setPosition(place.geometry.location);
-            marker.setVisible(true);
+    var autocompleteTo  = new google.maps.places.Autocomplete(inputTo );
+    autocompleteTo.bindTo('bounds', mapTo);
+    var infowindowTo  = new google.maps.InfoWindow();
+    var markerTo  = new google.maps.Marker({
+        map: mapTo
+    });
 
-            var address = '';
-            if (place.address_components) {
-                address = [
-                    (place.address_components[0] && place.address_components[0].short_name || ''),
-                    (place.address_components[1] && place.address_components[1].short_name || ''),
-                    (place.address_components[2] && place.address_components[2].short_name || '')
-                ].join(' ');
-            }
-
-            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-            infowindow.open(map, marker);
-        });
-
-        // Sets a listener on a radio button to change the filter type on Places
-        // Autocomplete.
-        function setupClickListener(id, types) {
-            var radioButton = document.getElementById(id);
-            google.maps.event.addDomListener(radioButton, 'click', function() {
-                autocomplete.setTypes(types);
-            });
+    google.maps.event.addListener(autocompleteFrom , 'place_changed', function() {
+        infowindowFrom.close();
+        markerFrom.setVisible(false);
+        var placeFrom  = autocompleteFrom.getPlace();
+        if (!placeFrom.geometry) {
+            return;
         }
+
+        // If the place has a geometry, then present it on a map.
+        if (placeFrom.geometry.viewport) {
+            mapFrom.fitBounds(placeFrom.geometry.viewport);
+        } else {
+            mapFrom.setCenter(placeFrom.geometry.location);
+            mapFrom.setZoom(17);  // Why 17? Because it looks good.
+        }
+        markerFrom.setIcon(/** @type {google.maps.Icon} */({
+            url: placeFrom.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+        }));
+        markerFrom.setPosition(placeFrom.geometry.location);
+        markerFrom.setVisible(true);
+
+        var address = '';
+        if (placeFrom.address_components) {
+            address = [
+                (placeFrom.address_components[0] && placeFrom.address_components[0].short_name || ''),
+                (placeFrom.address_components[1] && placeFrom.address_components[1].short_name || ''),
+                (placeFrom.address_components[2] && placeFrom.address_components[2].short_name || '')
+            ].join(' ');
+        }
+
+        infowindowFrom.setContent('<div><strong>' + placeFrom.name + '</strong><br>' + address);
+        infowindowFrom.open(mapFrom , markerFrom);
+    });
+
+
+    google.maps.event.addListener(autocompleteTo , 'place_changed', function() {
+        infowindowTo.close();
+        markerTo.setVisible(false);
+        var placeTo  = autocompleteTo.getPlace();
+        if (!placeTo.geometry) {
+            return;
+        }
+
+        // If the place has a geometry, then present it on a map.
+        if (placeTo.geometry.viewport) {
+            mapTo.fitBounds(placeTo.geometry.viewport);
+        } else {
+            mapTo.setCenter(placeTo.geometry.location);
+            mapTo.setZoom(17);  // Why 17? Because it looks good.
+        }
+        markerFrom.setIcon(/** @type {google.maps.Icon} */({
+            url: placeTo.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+        }));
+        markerTo.setPosition(placeTo.geometry.location);
+        markerTo.setVisible(true);
+
+        var address = '';
+        if (placeTo.address_components) {
+            address = [
+                (placeTo.address_components[0] && placeTo.address_components[0].short_name || ''),
+                (placeTo.address_components[1] && placeTo.address_components[1].short_name || ''),
+                (placeTo.address_components[2] && placeTo.address_components[2].short_name || '')
+            ].join(' ');
+        }
+
+        infowindowTo.setContent('<div><strong>' + placeTo.name + '</strong><br>' + address);
+        infowindowTo.open(mapTo , markerTo);
+    });
+
 }
+
+Template.add.events = {
+    'click input[type=submit]': function(e, instance){
+        e.preventDefault();
+
+        var item = {
+            from: $('.inputfrom').val(),
+            to: $('.inputto').val(),
+            age: $('#age').val(),
+            dateOut: $('#date-out').val(),
+            dateBack: $('#date-back').val(),
+            story: $('#story').val()
+        };
+
+
+
+        Meteor.call('submit', item, function(error, story) {
+
+            if(error){
+                console.log(error.reason);
+
+            }else{
+                console.log("new story", {'storyId': story.storyId});
+
+                Router.go('/list');
+            }
+        });
+
+    }
+}
+
+
+

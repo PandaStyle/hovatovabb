@@ -7,25 +7,32 @@
                 <h3>Honnan?</h3>
                 <div class="w-container map-container">
                     <div id="map-canvas" class="mapfrom"></div>
-                    <input id="pac-input" tabindex="1" class="controls inputfrom" type="text"  placeholder="Honnan">
+                    <input id="pac-input" tabindex="1" class="w-input controls inputfrom" type="text"  placeholder="Honnan" autofocus="">
+                    <div class="date-container">
+                        <span class="date-out-span">Kivandorlas eve: </span><input id="date-out" maxlength="4" tabindex="3" class="w-input date" type="text" name="date-out" required="required" data-name="Date-Out"></input>
+                    </div>
+
+
                 </div>
             </div>
             <div class="w-col w-col-6">
                 <h3>Hova?</h3>
                 <div class="w-container map-container to">
                     <div id="map-canvas" class="mapto"></div>
-                    <input id="pac-input" tabindex="2" class="controls inputto" type="text"  placeholder="Hova">
+                    <input id="pac-input" tabindex="2" class="w-input controls inputto" type="text"  placeholder="Hova">
+                    <div class="date-container">
+                    <span class="date-back-span">Tervezett visszavandorlas eve: </span> <input id="date-back" maxlength="4" tabindex="4" class="w-input date" type="text" required="required" name="date-back" data-name="Date-back"></input>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="w-container form-container">
             <div class="w-form">
                 <form name="email-form" data-name="Email Form">
-                    <input id="age" tabindex="3" class="w-input" type="text" placeholder="Eletkor" name="age" data-name="Age" required="required"></input>
-                    <input id="date-out" tabindex="4" class="w-input" type="text" placeholder="Kivandorlasi ev" name="date-out" required="required" data-name="Date-Out"></input>
-                    <input id="date-back" tabindex="5" class="w-input" type="text" placeholder="Tervezett visszavandorlas eve" required="required" name="date-back" data-name="Date-back"></input>
-                    <textarea id="story" tabindex="6" class="w-input story-textarea" placeholder="Meseld el a torteneted" name="story" data-name="story" required="required"></textarea>
-                    <input class="w-button button submit big-green" tabindex="7" type="submit" value="Submit" data-wait="Please wait..."></input>
+                    <input id="age" tabindex="5" class="w-input" type="text" placeholder="Eletkor" name="age" data-name="Age" required="required"></input>
+                    <input id="email" tabindex="6" class="w-input" type="email" placeholder="Email cim (opcionalis)" name="email" data-name="email" required="required"></input>
+                    <textarea id="story" tabindex="7" class="w-input story-textarea" placeholder="Meseld el a torteneted" name="story" data-name="story" required="required"></textarea>
+                    <input class="w-button button submit big-green" tabindex="8" type="submit" value="Submit" data-wait="Please wait..."></input>
                 </form>
                 <div class="w-form-done">
                     <p>Thank you! Your submission has been received!</p>

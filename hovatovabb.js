@@ -30,19 +30,9 @@ Router.map(function () {
         template: 'intro'
     });
 
-    this.route('add', {
-        path: '/add',
-        template: 'add'
-    });
-
-    this.route('list', {
-        path: '/list',
-        template: 'list'
-    });
-
-    this.route('intro', {
-        path: '/intro',
-        template: 'intro'
-    });
+    this.route('about');
+    this.route('list');
+    this.route('add');
+    this.route('blog');
 
 });

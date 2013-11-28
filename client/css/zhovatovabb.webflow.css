@@ -362,37 +362,8 @@ p {
     padding-right: 5px;
 }
 @media (max-width: 991px) {
-    .button.nav {
-        margin-left: 11px;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-    .button.big-green {
-        margin-top: 148px;
-    }
-    .nav-link {
-        margin-right: 7px;
-        margin-left: 7px;
-        font-size: 13px;
-    }
-    .grey-icon {
-        margin-top: 19px;
-    }
-    .content-column {
-        padding-top: 0px;
-    }
-    .circle {
-        height: 226px;
-    }
-    .frames {
-        width: 75%;
-    }
-    .number {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 10px;
-        padding-top: 4px;
-        font-size: 15px;
+    .header .company {
+        font-size: 26px;
     }
 }
 @media (max-width: 767px) {

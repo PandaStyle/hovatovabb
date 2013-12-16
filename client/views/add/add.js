@@ -2,12 +2,14 @@ Template.add.rendered = function(){
 
     var mapOptionsFrom = {
         center: new google.maps.LatLng(47.28921, 19.13878),
-        zoom: 7
+        zoom: 7,
+        disableDefaultUI: true
     };
 
     var mapOptionsTo = {
         center: new google.maps.LatLng(47.28921, 19.13878),
-        zoom: 1
+        zoom: 1,
+        disableDefaultUI: true
     };
 
     var mapFrom = new google.maps.Map(document.querySelector('.mapfrom'),
@@ -48,12 +50,12 @@ Template.add.rendered = function(){
         }
 
         // If the place has a geometry, then present it on a map.
-        if (placeFrom.geometry.viewport) {
-            mapFrom.fitBounds(placeFrom.geometry.viewport);
-        } else {
-            mapFrom.setCenter(placeFrom.geometry.location);
-            mapFrom.setZoom(17);  // Why 17? Because it looks good.
-        }
+//        if (placeFrom.geometry.viewport) {
+//            mapFrom.fitBounds(placeFrom.geometry.viewport);
+//        } else {
+//            mapFrom.setCenter(placeFrom.geometry.location);
+//            mapFrom.setZoom(17);  // Why 17? Because it looks good.
+//        }
         markerFrom.setIcon(/** @type {google.maps.Icon} */({
             url: placeFrom.icon,
             size: new google.maps.Size(71, 71),
@@ -73,8 +75,6 @@ Template.add.rendered = function(){
             ].join(' ');
         }
 
-        infowindowFrom.setContent('<div><strong>' + placeFrom.name + '</strong><br>' + address);
-        infowindowFrom.open(mapFrom , markerFrom);
     });
 
 
@@ -87,12 +87,6 @@ Template.add.rendered = function(){
         }
 
         // If the place has a geometry, then present it on a map.
-        if (placeTo.geometry.viewport) {
-            mapTo.fitBounds(placeTo.geometry.viewport);
-        } else {
-            mapTo.setCenter(placeTo.geometry.location);
-            mapTo.setZoom(17);  // Why 17? Because it looks good.
-        }
         markerFrom.setIcon(/** @type {google.maps.Icon} */({
             url: placeTo.icon,
             size: new google.maps.Size(71, 71),
@@ -112,13 +106,18 @@ Template.add.rendered = function(){
             ].join(' ');
         }
 
-        infowindowTo.setContent('<div><strong>' + placeTo.name + '</strong><br>' + address);
-        infowindowTo.open(mapTo , markerTo);
+
     });
 
 }
 
 Template.add.events = {
+    'keydown': function(evt) {
+        if (evt.which === 13) {
+           evt.preventDefault();
+        }
+    },
+
     'click input[type=submit]': function(e, instance){
         e.preventDefault();
 

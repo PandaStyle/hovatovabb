@@ -4,7 +4,7 @@ html, body, #map-canvas {
     padding: 0px;
 
 }
-#map-canvas {
+.add #map-canvas {
     width: 500px;height: 500px;
     margin: 0 auto;
 

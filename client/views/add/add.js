@@ -1,4 +1,5 @@
-Template.add.rendered = function(){
+
+function init() {
 
     var mapOptionsFrom = {
         center: new google.maps.LatLng(47.28921, 19.13878),
@@ -10,7 +11,7 @@ Template.add.rendered = function(){
         center: new google.maps.LatLng(47.28921, 19.13878),
         zoom: 1,
         disableDefaultUI: true
-    };
+    };                     
 
     var mapFrom = new google.maps.Map(document.querySelector('.mapfrom'),
         mapOptionsFrom);
@@ -26,7 +27,8 @@ Template.add.rendered = function(){
     //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     //map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
-    var autocompleteFrom  = new google.maps.places.Autocomplete(inputFrom );
+    autocompleteFrom  = new google.maps.places.Autocomplete(inputFrom);
+
     autocompleteFrom.bindTo('bounds', mapFrom );
     var infowindowFrom  = new google.maps.InfoWindow();
     var markerFrom  = new google.maps.Marker({
@@ -34,7 +36,7 @@ Template.add.rendered = function(){
     });
 
 
-    var autocompleteTo  = new google.maps.places.Autocomplete(inputTo );
+    autocompleteTo  = new google.maps.places.Autocomplete(inputTo );
     autocompleteTo.bindTo('bounds', mapTo);
     var infowindowTo  = new google.maps.InfoWindow();
     var markerTo  = new google.maps.Marker({
@@ -109,6 +111,15 @@ Template.add.rendered = function(){
 
     });
 
+  
+}
+
+
+
+Template.add.rendered = function(){
+  
+init();
+
 }
 
 Template.add.events = {
@@ -122,8 +133,13 @@ Template.add.events = {
         e.preventDefault();
 
         var item = {
+          name: $('#name').val(), 
             from: $('.inputfrom').val(),
+            fromLocLat: autocompleteFrom.getPlace().geometry.location.lat(),
+            fromLocLng: autocompleteFrom.getPlace().geometry.location.lng(),          
             to: $('.inputto').val(),
+            toLocLat: autocompleteTo.getPlace().geometry.location.lat(),
+            toLocLng: autocompleteTo.getPlace().geometry.location.lng(),
             age: $('#age').val(),
             dateOut: $('#date-out').val(),
             dateBack: $('#date-back').val(),

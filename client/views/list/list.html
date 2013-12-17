@@ -1,4 +1,8 @@
 <template name="list">
+     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
+
+      <div id="map-canvas" class="storymap"></div>
+   
     <div class="list section grey">
     {{#each stories}}
             {{>story}}

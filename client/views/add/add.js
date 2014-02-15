@@ -4,13 +4,16 @@ function init() {
     var mapOptionsFrom = {
         center: new google.maps.LatLng(47.28921, 19.13878),
         zoom: 7,
-        disableDefaultUI: true
+        disableDefaultUI: true,
+        types: ['(cities)'],
+        componentRestrictions: {country: "hu"}
     };
 
     var mapOptionsTo = {
         center: new google.maps.LatLng(47.28921, 19.13878),
         zoom: 1,
-        disableDefaultUI: true
+        disableDefaultUI: true,
+        types: ['(cities)']
     };                     
 
     var mapFrom = new google.maps.Map(document.querySelector('.mapfrom'),
@@ -135,11 +138,13 @@ Template.add.events = {
         var item = {
           name: $('#name').val(), 
             from: $('.inputfrom').val(),
+            fromCityId: autocompleteFrom.getPlace().id,
             fromLocLat: autocompleteFrom.getPlace().geometry.location.lat(),
             fromLocLng: autocompleteFrom.getPlace().geometry.location.lng(),          
             to: $('.inputto').val(),
             toLocLat: autocompleteTo.getPlace().geometry.location.lat(),
             toLocLng: autocompleteTo.getPlace().geometry.location.lng(),
+            toCityId: autocompleteTo.getPlace().id,
             age: $('#age').val(),
             dateOut: $('#date-out').val(),
             dateBack: $('#date-back').val(),
@@ -156,7 +161,7 @@ Template.add.events = {
             }else{
                 console.log("new story", {'storyId': story.storyId});
 
-                Router.go('/list');
+                Router.go('/listpage');
             }
         });
 

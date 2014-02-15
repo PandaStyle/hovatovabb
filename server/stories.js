@@ -15,6 +15,11 @@ Stories.allow({
     , remove: function(){  return true; }
 });
 
+Meteor.publish("s", function (obj) {
+
+    return Stories.find({});
+});
+
 
 Meteor.methods({
     submit: function(story){

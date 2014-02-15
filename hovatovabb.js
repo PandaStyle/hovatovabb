@@ -1,21 +1,12 @@
+
+
+
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to hovatovabb.";
-  };
+    Meteor.startup(function () {
+        Session.set('fromCityId', null);
+        Session.set('toCityId', null);
+    });
 
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
 }
 
 Router.configure({
@@ -27,12 +18,10 @@ Router.configure({
 Router.map(function () {
     this.route('home', {
         path: '/',
-        template: 'intro'
+        template: 'listpage'
     });
 
     this.route('about');
-    this.route('list');
+    this.route('listpage');
     this.route('add');
-    this.route('blog');
-
 });

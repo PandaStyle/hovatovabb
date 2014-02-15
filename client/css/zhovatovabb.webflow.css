@@ -356,6 +356,13 @@ p {
 .list.section {
     padding-top: 45px;
 }
+.search-col{
+    height: 64px;
+}
+.search-col .search{
+    margin-top: 13px;
+}
+
 #map-canvas.storymap {
     height:500px;  
     width: 100%;
@@ -373,6 +380,24 @@ p {
 .add .date-container span{
     font-size: 16px;
     padding-right: 5px;
+}
+.search-row .to{
+    margin-left: 100px;
+}
+.search-row .error{
+    border: 2px solid #ff0000 !important;
+    box-shadow: none;
+}
+
+.title-row {
+    text-align: center;
+}
+.title-row .title-ph{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.title-row .title {
+    font-size: 1.3em;
 }
 @media (max-width: 991px) {
     .header .company {

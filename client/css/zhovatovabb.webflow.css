@@ -338,13 +338,14 @@ p {
 }
 .story-cont {
   padding: 10px 20px;
-   height: 200px;
+
   margin-left: 20px;
     margin-right: 20px;
     background-color: #ffffff;
     margin-top: 30px;
     margin-bottom: 20px;
     box-shadow: #6e5a5a 0px 2px 6px 0px;
+    display: inline-block;
 }
 .story-item {
  
